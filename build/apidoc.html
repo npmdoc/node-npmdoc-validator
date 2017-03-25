@@ -46,622 +46,623 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
-        
+
         href="http://github.com/chriso/validator.js"
-        
+
     >validator (v7.0.0)</a>
 </h1>
+<h4>String validation and sanitization</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.validator">module validator</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.blacklist">
             function <span class="apidocSignatureSpan">validator.</span>blacklist
             <span class="apidocSignatureSpan">(str, chars)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.contains">
             function <span class="apidocSignatureSpan">validator.</span>contains
             <span class="apidocSignatureSpan">(str, elem)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.equals">
             function <span class="apidocSignatureSpan">validator.</span>equals
             <span class="apidocSignatureSpan">(str, comparison)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.escape">
             function <span class="apidocSignatureSpan">validator.</span>escape
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isAfter">
             function <span class="apidocSignatureSpan">validator.</span>isAfter
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isAlpha">
             function <span class="apidocSignatureSpan">validator.</span>isAlpha
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isAlphanumeric">
             function <span class="apidocSignatureSpan">validator.</span>isAlphanumeric
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isAscii">
             function <span class="apidocSignatureSpan">validator.</span>isAscii
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isBase64">
             function <span class="apidocSignatureSpan">validator.</span>isBase64
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isBefore">
             function <span class="apidocSignatureSpan">validator.</span>isBefore
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isBoolean">
             function <span class="apidocSignatureSpan">validator.</span>isBoolean
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isByteLength">
             function <span class="apidocSignatureSpan">validator.</span>isByteLength
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isCreditCard">
             function <span class="apidocSignatureSpan">validator.</span>isCreditCard
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isCurrency">
             function <span class="apidocSignatureSpan">validator.</span>isCurrency
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isDataURI">
             function <span class="apidocSignatureSpan">validator.</span>isDataURI
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isDecimal">
             function <span class="apidocSignatureSpan">validator.</span>isDecimal
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isDivisibleBy">
             function <span class="apidocSignatureSpan">validator.</span>isDivisibleBy
             <span class="apidocSignatureSpan">(str, num)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isEmail">
             function <span class="apidocSignatureSpan">validator.</span>isEmail
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isEmpty">
             function <span class="apidocSignatureSpan">validator.</span>isEmpty
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isFQDN">
             function <span class="apidocSignatureSpan">validator.</span>isFQDN
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isFloat">
             function <span class="apidocSignatureSpan">validator.</span>isFloat
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isFullWidth">
             function <span class="apidocSignatureSpan">validator.</span>isFullWidth
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isHalfWidth">
             function <span class="apidocSignatureSpan">validator.</span>isHalfWidth
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isHexColor">
             function <span class="apidocSignatureSpan">validator.</span>isHexColor
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isHexadecimal">
             function <span class="apidocSignatureSpan">validator.</span>isHexadecimal
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isIP">
             function <span class="apidocSignatureSpan">validator.</span>isIP
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isISBN">
             function <span class="apidocSignatureSpan">validator.</span>isISBN
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isISIN">
             function <span class="apidocSignatureSpan">validator.</span>isISIN
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isISO8601">
             function <span class="apidocSignatureSpan">validator.</span>isISO8601
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isISSN">
             function <span class="apidocSignatureSpan">validator.</span>isISSN
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isIn">
             function <span class="apidocSignatureSpan">validator.</span>isIn
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isInt">
             function <span class="apidocSignatureSpan">validator.</span>isInt
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isJSON">
             function <span class="apidocSignatureSpan">validator.</span>isJSON
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isLength">
             function <span class="apidocSignatureSpan">validator.</span>isLength
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isLowercase">
             function <span class="apidocSignatureSpan">validator.</span>isLowercase
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isMACAddress">
             function <span class="apidocSignatureSpan">validator.</span>isMACAddress
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isMD5">
             function <span class="apidocSignatureSpan">validator.</span>isMD5
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isMobilePhone">
             function <span class="apidocSignatureSpan">validator.</span>isMobilePhone
             <span class="apidocSignatureSpan">(str, locale)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isMongoId">
             function <span class="apidocSignatureSpan">validator.</span>isMongoId
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isMultibyte">
             function <span class="apidocSignatureSpan">validator.</span>isMultibyte
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isNumeric">
             function <span class="apidocSignatureSpan">validator.</span>isNumeric
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isSurrogatePair">
             function <span class="apidocSignatureSpan">validator.</span>isSurrogatePair
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isURL">
             function <span class="apidocSignatureSpan">validator.</span>isURL
             <span class="apidocSignatureSpan">(url, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isUUID">
             function <span class="apidocSignatureSpan">validator.</span>isUUID
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isUppercase">
             function <span class="apidocSignatureSpan">validator.</span>isUppercase
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isVariableWidth">
             function <span class="apidocSignatureSpan">validator.</span>isVariableWidth
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isWhitelisted">
             function <span class="apidocSignatureSpan">validator.</span>isWhitelisted
             <span class="apidocSignatureSpan">(str, chars)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.ltrim">
             function <span class="apidocSignatureSpan">validator.</span>ltrim
             <span class="apidocSignatureSpan">(str, chars)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.matches">
             function <span class="apidocSignatureSpan">validator.</span>matches
             <span class="apidocSignatureSpan">(str, pattern, modifiers)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.normalizeEmail">
             function <span class="apidocSignatureSpan">validator.</span>normalizeEmail
             <span class="apidocSignatureSpan">(email, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.rtrim">
             function <span class="apidocSignatureSpan">validator.</span>rtrim
             <span class="apidocSignatureSpan">(str, chars)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.stripLow">
             function <span class="apidocSignatureSpan">validator.</span>stripLow
             <span class="apidocSignatureSpan">(str, keep_new_lines)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.toBoolean">
             function <span class="apidocSignatureSpan">validator.</span>toBoolean
             <span class="apidocSignatureSpan">(str, strict)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.toDate">
             function <span class="apidocSignatureSpan">validator.</span>toDate
             <span class="apidocSignatureSpan">(date)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.toFloat">
             function <span class="apidocSignatureSpan">validator.</span>toFloat
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.toInt">
             function <span class="apidocSignatureSpan">validator.</span>toInt
             <span class="apidocSignatureSpan">(str, radix)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.trim">
             function <span class="apidocSignatureSpan">validator.</span>trim
             <span class="apidocSignatureSpan">(str, chars)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.unescape">
             function <span class="apidocSignatureSpan">validator.</span>unescape
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.whitelist">
             function <span class="apidocSignatureSpan">validator.</span>whitelist
             <span class="apidocSignatureSpan">(str, chars)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">validator.</span>version</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.validator.isFullWidth">module validator.isFullWidth</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isFullWidth.default">
             function <span class="apidocSignatureSpan">validator.isFullWidth.</span>default
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validator.isFullWidth.</span>fullWidth</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.validator.isHalfWidth">module validator.isHalfWidth</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isHalfWidth.default">
             function <span class="apidocSignatureSpan">validator.isHalfWidth.</span>default
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validator.isHalfWidth.</span>halfWidth</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.validator.isISO8601">module validator.isISO8601</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.validator.isISO8601.default">
             function <span class="apidocSignatureSpan">validator.isISO8601.</span>default
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validator.isISO8601.</span>iso8601</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.validator" id="apidoc.module.validator">module validator</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.validator.blacklist" id="apidoc.element.validator.blacklist">
         function <span class="apidocSignatureSpan">validator.</span>blacklist
@@ -675,9 +676,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.contains" id="apidoc.element.validator.contains">
         function <span class="apidocSignatureSpan">validator.</span>contains
@@ -691,9 +692,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.equals" id="apidoc.element.validator.equals">
         function <span class="apidocSignatureSpan">validator.</span>equals
@@ -707,9 +708,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.escape" id="apidoc.element.validator.escape">
         function <span class="apidocSignatureSpan">validator.</span>escape
@@ -719,14 +720,14 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function escape(str) {
       (0, _assertString2.default)(str);
-      return str.replace(/&#x26;/g, &#x27;&#x26;amp;&#x27;).replace(/&#x22;/g, &#x27;&#x26;quot;&#x27;).replace(/&#x27;/g, &#x27;&#x26;#x27;&#x27;).replace(/&#x3c;/g, &#x27;&#x26;lt;&#x27;).replace(/&#x3e;/g, &#x27;&#x26;gt\
+      return str.replace(/&#x26;/g, &#x27;&#x26;amp;&#x27;).replace(/&#x22;/g, &#x27;&#x26;quot;&#x27;).replace(/&#x27;/g, &#x27;&#x26;#x27;&#x27;).replace(/&#x3c;/g, &#x27;&#x26;lt;&#x27;).replace(/&#x3e;/g, &#x27;&#x26;gt
 ;&#x27;).replace(/\//g, &#x27;&#x26;#x2F;&#x27;).replace(/\\/g, &#x27;&#x26;#x5C;&#x27;).replace(/`/g, &#x27;&#x26;#96;&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isAfter" id="apidoc.element.validator.isAfter">
         function <span class="apidocSignatureSpan">validator.</span>isAfter
@@ -744,9 +745,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isAlpha" id="apidoc.element.validator.isAlpha">
         function <span class="apidocSignatureSpan">validator.</span>isAlpha
@@ -765,9 +766,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isAlphanumeric" id="apidoc.element.validator.isAlphanumeric">
         function <span class="apidocSignatureSpan">validator.</span>isAlphanumeric
@@ -786,9 +787,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isAscii" id="apidoc.element.validator.isAscii">
         function <span class="apidocSignatureSpan">validator.</span>isAscii
@@ -802,9 +803,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isBase64" id="apidoc.element.validator.isBase64">
         function <span class="apidocSignatureSpan">validator.</span>isBase64
@@ -823,9 +824,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isBefore" id="apidoc.element.validator.isBefore">
         function <span class="apidocSignatureSpan">validator.</span>isBefore
@@ -843,9 +844,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isBoolean" id="apidoc.element.validator.isBoolean">
         function <span class="apidocSignatureSpan">validator.</span>isBoolean
@@ -859,9 +860,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isByteLength" id="apidoc.element.validator.isByteLength">
         function <span class="apidocSignatureSpan">validator.</span>isByteLength
@@ -886,9 +887,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isCreditCard" id="apidoc.element.validator.isCreditCard">
         function <span class="apidocSignatureSpan">validator.</span>isCreditCard
@@ -925,9 +926,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isCurrency" id="apidoc.element.validator.isCurrency">
         function <span class="apidocSignatureSpan">validator.</span>isCurrency
@@ -942,9 +943,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isDataURI" id="apidoc.element.validator.isDataURI">
         function <span class="apidocSignatureSpan">validator.</span>isDataURI
@@ -958,9 +959,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isDecimal" id="apidoc.element.validator.isDecimal">
         function <span class="apidocSignatureSpan">validator.</span>isDecimal
@@ -974,9 +975,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isDivisibleBy" id="apidoc.element.validator.isDivisibleBy">
         function <span class="apidocSignatureSpan">validator.</span>isDivisibleBy
@@ -990,9 +991,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isEmail" id="apidoc.element.validator.isEmail">
         function <span class="apidocSignatureSpan">validator.</span>isEmail
@@ -1064,9 +1065,9 @@ import validator from &#x27;validator&#x27;;
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isEmpty" id="apidoc.element.validator.isEmpty">
         function <span class="apidocSignatureSpan">validator.</span>isEmpty
@@ -1080,9 +1081,9 @@ import validator from &#x27;validator&#x27;;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isFQDN" id="apidoc.element.validator.isFQDN">
         function <span class="apidocSignatureSpan">validator.</span>isFQDN
@@ -1125,9 +1126,9 @@ import validator from &#x27;validator&#x27;;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isFloat" id="apidoc.element.validator.isFloat">
         function <span class="apidocSignatureSpan">validator.</span>isFloat
@@ -1141,14 +1142,14 @@ import validator from &#x27;validator&#x27;;
   if (str === &#x27;&#x27; || str === &#x27;.&#x27;) {
     return false;
   }
-  return float.test(str) &#x26;&#x26; (!options.hasOwnProperty(&#x27;min&#x27;) || str &#x3e;= options.min) &#x26;&#x26; (!options.hasOwnProperty(&#x27;max&#x27;) || str &#x3c;= \
+  return float.test(str) &#x26;&#x26; (!options.hasOwnProperty(&#x27;min&#x27;) || str &#x3e;= options.min) &#x26;&#x26; (!options.hasOwnProperty(&#x27;max&#x27;) || str &#x3c;=
 options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c; options.lt) &#x26;&#x26; (!options.hasOwnProperty(&#x27;gt&#x27;) || str &#x3e; options.gt);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isFullWidth" id="apidoc.element.validator.isFullWidth">
         function <span class="apidocSignatureSpan">validator.</span>isFullWidth
@@ -1162,9 +1163,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isHalfWidth" id="apidoc.element.validator.isHalfWidth">
         function <span class="apidocSignatureSpan">validator.</span>isHalfWidth
@@ -1178,9 +1179,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isHexColor" id="apidoc.element.validator.isHexColor">
         function <span class="apidocSignatureSpan">validator.</span>isHexColor
@@ -1194,9 +1195,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isHexadecimal" id="apidoc.element.validator.isHexadecimal">
         function <span class="apidocSignatureSpan">validator.</span>isHexadecimal
@@ -1210,9 +1211,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isIP" id="apidoc.element.validator.isIP">
         function <span class="apidocSignatureSpan">validator.</span>isIP
@@ -1286,9 +1287,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isISBN" id="apidoc.element.validator.isISBN">
         function <span class="apidocSignatureSpan">validator.</span>isISBN
@@ -1337,9 +1338,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isISIN" id="apidoc.element.validator.isISIN">
         function <span class="apidocSignatureSpan">validator.</span>isISIN
@@ -1381,9 +1382,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isISO8601" id="apidoc.element.validator.isISO8601">
         function <span class="apidocSignatureSpan">validator.</span>isISO8601
@@ -1397,9 +1398,9 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isISSN" id="apidoc.element.validator.isISSN">
         function <span class="apidocSignatureSpan">validator.</span>isISSN
@@ -1425,8 +1426,8 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
   var _iteratorError = undefined;
 
   try {
-    for (var _iterator = issnDigits[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _\
-iteratorNormalCompletion = true) {
+    for (var _iterator = issnDigits[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion
+ = true) {
       var digit = _step.value;
 
       var digitValue = digit.toUpperCase() === &#x27;X&#x27; ? 10 : +digit;
@@ -1452,9 +1453,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isIn" id="apidoc.element.validator.isIn">
         function <span class="apidocSignatureSpan">validator.</span>isIn
@@ -1482,9 +1483,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isInt" id="apidoc.element.validator.isInt">
         function <span class="apidocSignatureSpan">validator.</span>isInt
@@ -1510,9 +1511,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isJSON" id="apidoc.element.validator.isJSON">
         function <span class="apidocSignatureSpan">validator.</span>isJSON
@@ -1530,9 +1531,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isLength" id="apidoc.element.validator.isLength">
         function <span class="apidocSignatureSpan">validator.</span>isLength
@@ -1558,9 +1559,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isLowercase" id="apidoc.element.validator.isLowercase">
         function <span class="apidocSignatureSpan">validator.</span>isLowercase
@@ -1574,9 +1575,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isMACAddress" id="apidoc.element.validator.isMACAddress">
         function <span class="apidocSignatureSpan">validator.</span>isMACAddress
@@ -1590,9 +1591,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isMD5" id="apidoc.element.validator.isMD5">
         function <span class="apidocSignatureSpan">validator.</span>isMD5
@@ -1606,9 +1607,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isMobilePhone" id="apidoc.element.validator.isMobilePhone">
         function <span class="apidocSignatureSpan">validator.</span>isMobilePhone
@@ -1625,9 +1626,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isMongoId" id="apidoc.element.validator.isMongoId">
         function <span class="apidocSignatureSpan">validator.</span>isMongoId
@@ -1641,9 +1642,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isMultibyte" id="apidoc.element.validator.isMultibyte">
         function <span class="apidocSignatureSpan">validator.</span>isMultibyte
@@ -1657,9 +1658,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isNumeric" id="apidoc.element.validator.isNumeric">
         function <span class="apidocSignatureSpan">validator.</span>isNumeric
@@ -1673,9 +1674,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isSurrogatePair" id="apidoc.element.validator.isSurrogatePair">
         function <span class="apidocSignatureSpan">validator.</span>isSurrogatePair
@@ -1689,9 +1690,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isURL" id="apidoc.element.validator.isURL">
         function <span class="apidocSignatureSpan">validator.</span>isURL
@@ -1773,8 +1774,8 @@ iteratorNormalCompletion = true) {
     }
   }
 
-  if (!(0, _isIP2.default)(host) &#x26;&#x26; !(0, _isFQDN2.default)(host, options) &#x26;&#x26; (!ipv6 || !(0, _isIP2.default)(ipv6, 6)) &#x26;&#x26; host !=\
-= &#x27;localhost&#x27;) {
+  if (!(0, _isIP2.default)(host) &#x26;&#x26; !(0, _isFQDN2.default)(host, options) &#x26;&#x26; (!ipv6 || !(0, _isIP2.default)(ipv6, 6)) &#x26;&#x26; host !== &#x27;
+localhost&#x27;) {
     return false;
   }
 
@@ -1791,9 +1792,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isUUID" id="apidoc.element.validator.isUUID">
         function <span class="apidocSignatureSpan">validator.</span>isUUID
@@ -1810,9 +1811,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isUppercase" id="apidoc.element.validator.isUppercase">
         function <span class="apidocSignatureSpan">validator.</span>isUppercase
@@ -1826,9 +1827,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isVariableWidth" id="apidoc.element.validator.isVariableWidth">
         function <span class="apidocSignatureSpan">validator.</span>isVariableWidth
@@ -1842,9 +1843,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.isWhitelisted" id="apidoc.element.validator.isWhitelisted">
         function <span class="apidocSignatureSpan">validator.</span>isWhitelisted
@@ -1863,9 +1864,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.ltrim" id="apidoc.element.validator.ltrim">
         function <span class="apidocSignatureSpan">validator.</span>ltrim
@@ -1880,9 +1881,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.matches" id="apidoc.element.validator.matches">
         function <span class="apidocSignatureSpan">validator.</span>matches
@@ -1899,9 +1900,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.normalizeEmail" id="apidoc.element.validator.normalizeEmail">
         function <span class="apidocSignatureSpan">validator.</span>normalizeEmail
@@ -1981,9 +1982,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.rtrim" id="apidoc.element.validator.rtrim">
         function <span class="apidocSignatureSpan">validator.</span>rtrim
@@ -2004,9 +2005,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.stripLow" id="apidoc.element.validator.stripLow">
         function <span class="apidocSignatureSpan">validator.</span>stripLow
@@ -2021,9 +2022,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.toBoolean" id="apidoc.element.validator.toBoolean">
         function <span class="apidocSignatureSpan">validator.</span>toBoolean
@@ -2040,9 +2041,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.toDate" id="apidoc.element.validator.toDate">
         function <span class="apidocSignatureSpan">validator.</span>toDate
@@ -2057,9 +2058,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.toFloat" id="apidoc.element.validator.toFloat">
         function <span class="apidocSignatureSpan">validator.</span>toFloat
@@ -2073,9 +2074,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.toInt" id="apidoc.element.validator.toInt">
         function <span class="apidocSignatureSpan">validator.</span>toInt
@@ -2089,9 +2090,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.trim" id="apidoc.element.validator.trim">
         function <span class="apidocSignatureSpan">validator.</span>trim
@@ -2104,9 +2105,9 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.unescape" id="apidoc.element.validator.unescape">
         function <span class="apidocSignatureSpan">validator.</span>unescape
@@ -2116,14 +2117,14 @@ iteratorNormalCompletion = true) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function unescape(str) {
       (0, _assertString2.default)(str);
-      return str.replace(/&#x26;amp;/g, &#x27;&#x26;&#x27;).replace(/&#x26;quot;/g, &#x27;&#x22;&#x27;).replace(/&#x26;#x27;/g, &#x22;&#x27;&#x22;).replace(/&#x26;lt;/g, &#x27;&#x3c;&#x27;).replace(/&#x26;gt;/g, &#x27;\
-&#x3e;&#x27;).replace(/&#x26;#x2F;/g, &#x27;/&#x27;).replace(/&#x26;#96;/g, &#x27;`&#x27;);
+      return str.replace(/&#x26;amp;/g, &#x27;&#x26;&#x27;).replace(/&#x26;quot;/g, &#x27;&#x22;&#x27;).replace(/&#x26;#x27;/g, &#x22;&#x27;&#x22;).replace(/&#x26;lt;/g, &#x27;&#x3c;&#x27;).replace(/&#x26;gt;/g, &#x27;&#x3e;&#x27;).
+replace(/&#x26;#x2F;/g, &#x27;/&#x27;).replace(/&#x26;#96;/g, &#x27;`&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.validator.whitelist" id="apidoc.element.validator.whitelist">
         function <span class="apidocSignatureSpan">validator.</span>whitelist
@@ -2137,16 +2138,16 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.validator.isFullWidth" id="apidoc.module.validator.isFullWidth">module validator.isFullWidth</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.validator.isFullWidth.default" id="apidoc.element.validator.isFullWidth.default">
         function <span class="apidocSignatureSpan">validator.isFullWidth.</span>default
@@ -2160,16 +2161,16 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.validator.isHalfWidth" id="apidoc.module.validator.isHalfWidth">module validator.isHalfWidth</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.validator.isHalfWidth.default" id="apidoc.element.validator.isHalfWidth.default">
         function <span class="apidocSignatureSpan">validator.isHalfWidth.</span>default
@@ -2183,16 +2184,16 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.validator.isISO8601" id="apidoc.module.validator.isISO8601">module validator.isISO8601</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.validator.isISO8601.default" id="apidoc.element.validator.isISO8601.default">
         function <span class="apidocSignatureSpan">validator.isISO8601.</span>default
@@ -2206,10 +2207,10 @@ iteratorNormalCompletion = true) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocFooterDiv">
