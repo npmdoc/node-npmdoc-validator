@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"validator",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "validator",
+    "description": "api documentation for [validator (v7.0.0)](http://github.com/chriso/validator.js) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-validator.svg)](https://travis-ci.org/npmdoc/node-npmdoc-validator)",
     "devDependencies": {
-        "validator": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
-        "utility2": "kaizhu256/node-utility2#alpha"
+        "utility2": "kaizhu256/node-utility2#alpha",
+        "validator": "*"
     },
-    "name":"npmdoc-validator",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-validator",
+    "keywords": [
+        "documentation",
+        "validator"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_validator.js",
+    "name": "npmdoc-validator",
+    "nameAlias": "npmdoc_validator",
+    "nameOriginal": "npmdoc-validator",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-validator.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.3"
 }
