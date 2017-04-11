@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://github.com/chriso/validator.js"
-
-    >validator (v7.0.0)</a>
+    <a href="http://github.com/chriso/validator.js">validator (v7.0.0)</a>
 </h1>
 <h4>String validation and sanitization</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.validator">module validator</a><ol>
 
@@ -615,7 +608,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function blacklist(str, chars) {
   (0, _assertString2.default)(str);
-  return str.replace(new RegExp(&#x27;[&#x27; + chars + &#x27;]+&#x27;, &#x27;g&#x27;), &#x27;&#x27;);
+  return str.replace(new RegExp('[' + chars + ']+', 'g'), '');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -631,7 +624,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function contains(str, elem) {
   (0, _assertString2.default)(str);
-  return str.indexOf((0, _toString2.default)(elem)) &#x3e;= 0;
+  return str.indexOf((0, _toString2.default)(elem)) &gt;= 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -663,8 +656,8 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function escape(str) {
       (0, _assertString2.default)(str);
-      return str.replace(/&#x26;/g, &#x27;&#x26;amp;&#x27;).replace(/&#x22;/g, &#x27;&#x26;quot;&#x27;).replace(/&#x27;/g, &#x27;&#x26;#x27;&#x27;).replace(/&#x3c;/g, &#x27;&#x26;lt;&#x27;).replace(/&#x3e;/g, &#x27;&#x26;gt
-;&#x27;).replace(/\//g, &#x27;&#x26;#x2F;&#x27;).replace(/\\/g, &#x27;&#x26;#x5C;&#x27;).replace(/`/g, &#x27;&#x26;#96;&#x27;);
+      return str.replace(/&amp;/g, '&amp;amp;').replace(/"/g, '&amp;quot;').replace(/'/g, '&amp;#x27;').replace(/&lt;/g, '&amp;lt;').replace(/&gt;/g, '&amp;gt
+;').replace(/\//g, '&amp;#x2F;').replace(/\\/g, '&amp;#x5C;').replace(/`/g, '&amp;#96;');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -679,12 +672,12 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isAfter(str) {
-  var date = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : String(new Date());
+  var date = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : String(new Date());
 
   (0, _assertString2.default)(str);
   var comparison = (0, _toDate2.default)(date);
   var original = (0, _toDate2.default)(str);
-  return !!(original &#x26;&#x26; comparison &#x26;&#x26; original &#x3e; comparison);
+  return !!(original &amp;&amp; comparison &amp;&amp; original &gt; comparison);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -699,13 +692,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isAlpha(str) {
-  var locale = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : &#x27;en-US&#x27;;
+  var locale = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : 'en-US';
 
   (0, _assertString2.default)(str);
   if (locale in _alpha.alpha) {
     return _alpha.alpha[locale].test(str);
   }
-  throw new Error(&#x27;Invalid locale \&#x27;&#x27; + locale + &#x27;\&#x27;&#x27;);
+  throw new Error('Invalid locale \'' + locale + '\'');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -720,13 +713,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isAlphanumeric(str) {
-  var locale = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : &#x27;en-US&#x27;;
+  var locale = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : 'en-US';
 
   (0, _assertString2.default)(str);
   if (locale in _alpha.alphanumeric) {
     return _alpha.alphanumeric[locale].test(str);
   }
-  throw new Error(&#x27;Invalid locale \&#x27;&#x27; + locale + &#x27;\&#x27;&#x27;);
+  throw new Error('Invalid locale \'' + locale + '\'');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -762,8 +755,8 @@
   if (!len || len % 4 !== 0 || notBase64.test(str)) {
     return false;
   }
-  var firstPaddingChar = str.indexOf(&#x27;=&#x27;);
-  return firstPaddingChar === -1 || firstPaddingChar === len - 1 || firstPaddingChar === len - 2 &#x26;&#x26; str[len - 1] === &#x27;=&#x27;;
+  var firstPaddingChar = str.indexOf('=');
+  return firstPaddingChar === -1 || firstPaddingChar === len - 1 || firstPaddingChar === len - 2 &amp;&amp; str[len - 1] === '=';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -778,12 +771,12 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isBefore(str) {
-  var date = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : String(new Date());
+  var date = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : String(new Date());
 
   (0, _assertString2.default)(str);
   var comparison = (0, _toDate2.default)(date);
   var original = (0, _toDate2.default)(str);
-  return !!(original &#x26;&#x26; comparison &#x26;&#x26; original &#x3c; comparison);
+  return !!(original &amp;&amp; comparison &amp;&amp; original &lt; comparison);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -799,7 +792,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isBoolean(str) {
   (0, _assertString2.default)(str);
-  return [&#x27;true&#x27;, &#x27;false&#x27;, &#x27;1&#x27;, &#x27;0&#x27;].indexOf(str) &#x3e;= 0;
+  return ['true', 'false', '1', '0'].indexOf(str) &gt;= 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -817,7 +810,7 @@
   (0, _assertString2.default)(str);
   var min = void 0;
   var max = void 0;
-  if ((typeof options === &#x27;undefined&#x27; ? &#x27;undefined&#x27; : _typeof(options)) === &#x27;object&#x27;) {
+  if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
     min = options.min || 0;
     max = options.max;
   } else {
@@ -826,7 +819,7 @@
     max = arguments[2];
   }
   var len = encodeURI(str).split(/%..|./).length - 1;
-  return len &#x3e;= min &#x26;&#x26; (typeof max === &#x27;undefined&#x27; || len &#x3c;= max);
+  return len &gt;= min &amp;&amp; (typeof max === 'undefined' || len &lt;= max);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -842,7 +835,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isCreditCard(str) {
   (0, _assertString2.default)(str);
-  var sanitized = str.replace(/[^0-9]+/g, &#x27;&#x27;);
+  var sanitized = str.replace(/[^0-9]+/g, '');
   if (!creditCard.test(sanitized)) {
     return false;
   }
@@ -850,12 +843,12 @@
   var digit = void 0;
   var tmpNum = void 0;
   var shouldDouble = void 0;
-  for (var i = sanitized.length - 1; i &#x3e;= 0; i--) {
+  for (var i = sanitized.length - 1; i &gt;= 0; i--) {
     digit = sanitized.substring(i, i + 1);
     tmpNum = parseInt(digit, 10);
     if (shouldDouble) {
       tmpNum *= 2;
-      if (tmpNum &#x3e;= 10) {
+      if (tmpNum &gt;= 10) {
         sum += tmpNum % 10 + 1;
       } else {
         sum += tmpNum;
@@ -914,7 +907,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isDecimal(str) {
   (0, _assertString2.default)(str);
-  return str !== &#x27;&#x27; &#x26;&#x26; decimal.test(str);
+  return str !== '' &amp;&amp; decimal.test(str);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -957,13 +950,13 @@
     }
   }
 
-  var parts = str.split(&#x27;@&#x27;);
+  var parts = str.split('@');
   var domain = parts.pop();
-  var user = parts.join(&#x27;@&#x27;);
+  var user = parts.join('@');
 
   var lower_domain = domain.toLowerCase();
-  if (lower_domain === &#x27;gmail.com&#x27; || lower_domain === &#x27;googlemail.com&#x27;) {
-    user = user.replace(/\./g, &#x27;&#x27;).toLowerCase();
+  if (lower_domain === 'gmail.com' || lower_domain === 'googlemail.com') {
+    user = user.replace(/\./g, '').toLowerCase();
   }
 
   if (!(0, _isByteLength2.default)(user, { max: 64 }) || !(0, _isByteLength2.default)(domain, { max: 256 })) {
@@ -974,15 +967,15 @@
     return false;
   }
 
-  if (user[0] === &#x27;&#x22;&#x27;) {
+  if (user[0] === '"') {
     user = user.slice(1, user.length - 1);
     return options.allow_utf8_local_part ? quotedEmailUserUtf8.test(user) : quotedEmailUser.test(user);
   }
 
   var pattern = options.allow_utf8_local_part ? emailUserUtf8Part : emailUserPart;
 
-  var user_parts = user.split(&#x27;.&#x27;);
-  for (var i = 0; i &#x3c; user_parts.length; i++) {
+  var user_parts = user.split('.');
+  for (var i = 0; i &lt; user_parts.length; i++) {
     if (!pattern.test(user_parts[i])) {
       return false;
     }
@@ -996,15 +989,15 @@
 Install the library with `npm install validator`
 
 ```javascript
-var validator = require(&#x27;validator&#x27;);
+var validator = require('validator');
 
-validator.<span class="apidocCodeKeywordSpan">isEmail</span>(&#x27;foo@bar.com&#x27;); //=&#x3e; true
+validator.<span class="apidocCodeKeywordSpan">isEmail</span>('foo@bar.com'); //=&gt; true
 ```
 
 #### ES6
 
 ```javascript
-import validator from &#x27;validator&#x27;;
+import validator from 'validator';
 ```
 ...</pre></li>
     </ul>
@@ -1039,20 +1032,20 @@ import validator from &#x27;validator&#x27;;
   options = (0, _merge2.default)(options, default_fqdn_options);
 
 <span class="apidocCodeCommentSpan">  /* Remove the optional trailing dot before checking validity */
-</span>  if (options.allow_trailing_dot &#x26;&#x26; str[str.length - 1] === &#x27;.&#x27;) {
+</span>  if (options.allow_trailing_dot &amp;&amp; str[str.length - 1] === '.') {
     str = str.substring(0, str.length - 1);
   }
-  var parts = str.split(&#x27;.&#x27;);
+  var parts = str.split('.');
   if (options.require_tld) {
     var tld = parts.pop();
     if (!parts.length || !/^([a-z\u00a1-\uffff]{2,}|xn[a-z0-9-]{2,})$/i.test(tld)) {
       return false;
     }
   }
-  for (var part, i = 0; i &#x3c; parts.length; i++) {
+  for (var part, i = 0; i &lt; parts.length; i++) {
     part = parts[i];
     if (options.allow_underscores) {
-      part = part.replace(/_/g, &#x27;&#x27;);
+      part = part.replace(/_/g, '');
     }
     if (!/^[a-z\u00a1-\uffff0-9-]+$/i.test(part)) {
       return false;
@@ -1061,7 +1054,7 @@ import validator from &#x27;validator&#x27;;
       // disallow full-width chars
       return false;
     }
-    if (part[0] === &#x27;-&#x27; || part[part.length - 1] === &#x27;-&#x27;) {
+    if (part[0] === '-' || part[part.length - 1] === '-') {
       return false;
     }
   }
@@ -1082,11 +1075,11 @@ import validator from &#x27;validator&#x27;;
     <li>description and source-code<pre class="apidocCodePre">function isFloat(str, options) {
   (0, _assertString2.default)(str);
   options = options || {};
-  if (str === &#x27;&#x27; || str === &#x27;.&#x27;) {
+  if (str === '' || str === '.') {
     return false;
   }
-  return float.test(str) &#x26;&#x26; (!options.hasOwnProperty(&#x27;min&#x27;) || str &#x3e;= options.min) &#x26;&#x26; (!options.hasOwnProperty(&#x27;max&#x27;) || str &#x3c;=
-options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c; options.lt) &#x26;&#x26; (!options.hasOwnProperty(&#x27;gt&#x27;) || str &#x3e; options.gt);
+  return float.test(str) &amp;&amp; (!options.hasOwnProperty('min') || str &gt;= options.min) &amp;&amp; (!options.hasOwnProperty('max') || str &lt;=
+options.max) &amp;&amp; (!options.hasOwnProperty('lt') || str &lt; options.lt) &amp;&amp; (!options.hasOwnProperty('gt') || str &gt; options.gt);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1165,56 +1158,56 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isIP(str) {
-  var version = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : &#x27;&#x27;;
+  var version = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : '';
 
   (0, _assertString2.default)(str);
   version = String(version);
   if (!version) {
     return isIP(str, 4) || isIP(str, 6);
-  } else if (version === &#x27;4&#x27;) {
+  } else if (version === '4') {
     if (!ipv4Maybe.test(str)) {
       return false;
     }
-    var parts = str.split(&#x27;.&#x27;).sort(function (a, b) {
+    var parts = str.split('.').sort(function (a, b) {
       return a - b;
     });
-    return parts[3] &#x3c;= 255;
-  } else if (version === &#x27;6&#x27;) {
-    var blocks = str.split(&#x27;:&#x27;);
+    return parts[3] &lt;= 255;
+  } else if (version === '6') {
+    var blocks = str.split(':');
     var foundOmissionBlock = false; // marker to indicate ::
 
     // At least some OS accept the last 32 bits of an IPv6 address
     // (i.e. 2 of the blocks) in IPv4 notation, and RFC 3493 says
-    // that &#x27;::ffff:a.b.c.d&#x27; is valid for IPv4-mapped IPv6 addresses,
-    // and &#x27;::a.b.c.d&#x27; is deprecated, but also valid.
+    // that '::ffff:a.b.c.d' is valid for IPv4-mapped IPv6 addresses,
+    // and '::a.b.c.d' is deprecated, but also valid.
     var foundIPv4TransitionBlock = isIP(blocks[blocks.length - 1], 4);
     var expectedNumberOfBlocks = foundIPv4TransitionBlock ? 7 : 8;
 
-    if (blocks.length &#x3e; expectedNumberOfBlocks) {
+    if (blocks.length &gt; expectedNumberOfBlocks) {
       return false;
     }
     // initial or final ::
-    if (str === &#x27;::&#x27;) {
+    if (str === '::') {
       return true;
-    } else if (str.substr(0, 2) === &#x27;::&#x27;) {
+    } else if (str.substr(0, 2) === '::') {
       blocks.shift();
       blocks.shift();
       foundOmissionBlock = true;
-    } else if (str.substr(str.length - 2) === &#x27;::&#x27;) {
+    } else if (str.substr(str.length - 2) === '::') {
       blocks.pop();
       blocks.pop();
       foundOmissionBlock = true;
     }
 
-    for (var i = 0; i &#x3c; blocks.length; ++i) {
+    for (var i = 0; i &lt; blocks.length; ++i) {
       // test for a :: which can not be at the string start/end
       // since those cases have been handled above
-      if (blocks[i] === &#x27;&#x27; &#x26;&#x26; i &#x3e; 0 &#x26;&#x26; i &#x3c; blocks.length - 1) {
+      if (blocks[i] === '' &amp;&amp; i &gt; 0 &amp;&amp; i &lt; blocks.length - 1) {
         if (foundOmissionBlock) {
           return false; // multiple :: in address
         }
         foundOmissionBlock = true;
-      } else if (foundIPv4TransitionBlock &#x26;&#x26; i === blocks.length - 1) {
+      } else if (foundIPv4TransitionBlock &amp;&amp; i === blocks.length - 1) {
         // it has been checked before that the last
         // block is a valid IPv4 address
       } else if (!ipv6Block.test(blocks[i])) {
@@ -1222,7 +1215,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
       }
     }
     if (foundOmissionBlock) {
-      return blocks.length &#x3e;= 1;
+      return blocks.length &gt;= 1;
     }
     return blocks.length === expectedNumberOfBlocks;
   }
@@ -1241,24 +1234,24 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isISBN(str) {
-  var version = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : &#x27;&#x27;;
+  var version = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : '';
 
   (0, _assertString2.default)(str);
   version = String(version);
   if (!version) {
     return isISBN(str, 10) || isISBN(str, 13);
   }
-  var sanitized = str.replace(/[\s-]+/g, &#x27;&#x27;);
+  var sanitized = str.replace(/[\s-]+/g, '');
   var checksum = 0;
   var i = void 0;
-  if (version === &#x27;10&#x27;) {
+  if (version === '10') {
     if (!isbn10Maybe.test(sanitized)) {
       return false;
     }
-    for (i = 0; i &#x3c; 9; i++) {
+    for (i = 0; i &lt; 9; i++) {
       checksum += (i + 1) * sanitized.charAt(i);
     }
-    if (sanitized.charAt(9) === &#x27;X&#x27;) {
+    if (sanitized.charAt(9) === 'X') {
       checksum += 10 * 10;
     } else {
       checksum += 10 * sanitized.charAt(9);
@@ -1266,11 +1259,11 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     if (checksum % 11 === 0) {
       return !!sanitized;
     }
-  } else if (version === &#x27;13&#x27;) {
+  } else if (version === '13') {
     if (!isbn13Maybe.test(sanitized)) {
       return false;
     }
-    for (i = 0; i &#x3c; 12; i++) {
+    for (i = 0; i &lt; 12; i++) {
       checksum += factor[i % 2] * sanitized.charAt(i);
     }
     if (sanitized.charAt(12) - (10 - checksum % 10) % 10 === 0) {
@@ -1305,12 +1298,12 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
   var digit = void 0;
   var tmpNum = void 0;
   var shouldDouble = true;
-  for (var i = checksumStr.length - 2; i &#x3e;= 0; i--) {
+  for (var i = checksumStr.length - 2; i &gt;= 0; i--) {
     digit = checksumStr.substring(i, i + 1);
     tmpNum = parseInt(digit, 10);
     if (shouldDouble) {
       tmpNum *= 2;
-      if (tmpNum &#x3e;= 10) {
+      if (tmpNum &gt;= 10) {
         sum += tmpNum + 1;
       } else {
         sum += tmpNum;
@@ -1352,16 +1345,16 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isISSN(str) {
-  var options = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+  var options = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
 
   (0, _assertString2.default)(str);
   var testIssn = issn;
-  testIssn = options.require_hyphen ? testIssn.replace(&#x27;?&#x27;, &#x27;&#x27;) : testIssn;
-  testIssn = options.case_sensitive ? new RegExp(testIssn) : new RegExp(testIssn, &#x27;i&#x27;);
+  testIssn = options.require_hyphen ? testIssn.replace('?', '') : testIssn;
+  testIssn = options.case_sensitive ? new RegExp(testIssn) : new RegExp(testIssn, 'i');
   if (!testIssn.test(str)) {
     return false;
   }
-  var issnDigits = str.replace(&#x27;-&#x27;, &#x27;&#x27;);
+  var issnDigits = str.replace('-', '');
   var position = 8;
   var checksum = 0;
   var _iteratorNormalCompletion = true;
@@ -1373,7 +1366,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
  = true) {
       var digit = _step.value;
 
-      var digitValue = digit.toUpperCase() === &#x27;X&#x27; ? 10 : +digit;
+      var digitValue = digit.toUpperCase() === 'X' ? 10 : +digit;
       checksum += digitValue * position;
       --position;
     }
@@ -1382,7 +1375,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     _iteratorError = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion &#x26;&#x26; _iterator.return) {
+      if (!_iteratorNormalCompletion &amp;&amp; _iterator.return) {
         _iterator.return();
       }
     } finally {
@@ -1409,18 +1402,18 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     <li>description and source-code<pre class="apidocCodePre">function isIn(str, options) {
   (0, _assertString2.default)(str);
   var i = void 0;
-  if (Object.prototype.toString.call(options) === &#x27;[object Array]&#x27;) {
+  if (Object.prototype.toString.call(options) === '[object Array]') {
     var array = [];
     for (i in options) {
       if ({}.hasOwnProperty.call(options, i)) {
         array[i] = (0, _toString2.default)(options[i]);
       }
     }
-    return array.indexOf(str) &#x3e;= 0;
-  } else if ((typeof options === &#x27;undefined&#x27; ? &#x27;undefined&#x27; : _typeof(options)) === &#x27;object&#x27;) {
+    return array.indexOf(str) &gt;= 0;
+  } else if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
     return options.hasOwnProperty(str);
-  } else if (options &#x26;&#x26; typeof options.indexOf === &#x27;function&#x27;) {
-    return options.indexOf(str) &#x3e;= 0;
+  } else if (options &amp;&amp; typeof options.indexOf === 'function') {
+    return options.indexOf(str) &gt;= 0;
   }
   return false;
 }</pre></li>
@@ -1442,15 +1435,15 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
 
   // Get the regex to use for testing, based on whether
   // leading zeroes are allowed or not.
-  var regex = options.hasOwnProperty(&#x27;allow_leading_zeroes&#x27;) &#x26;&#x26; !options.allow_leading_zeroes ? int : intLeadingZeroes;
+  var regex = options.hasOwnProperty('allow_leading_zeroes') &amp;&amp; !options.allow_leading_zeroes ? int : intLeadingZeroes;
 
   // Check min/max/lt/gt
-  var minCheckPassed = !options.hasOwnProperty(&#x27;min&#x27;) || str &#x3e;= options.min;
-  var maxCheckPassed = !options.hasOwnProperty(&#x27;max&#x27;) || str &#x3c;= options.max;
-  var ltCheckPassed = !options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c; options.lt;
-  var gtCheckPassed = !options.hasOwnProperty(&#x27;gt&#x27;) || str &#x3e; options.gt;
+  var minCheckPassed = !options.hasOwnProperty('min') || str &gt;= options.min;
+  var maxCheckPassed = !options.hasOwnProperty('max') || str &lt;= options.max;
+  var ltCheckPassed = !options.hasOwnProperty('lt') || str &lt; options.lt;
+  var gtCheckPassed = !options.hasOwnProperty('gt') || str &gt; options.gt;
 
-  return regex.test(str) &#x26;&#x26; minCheckPassed &#x26;&#x26; maxCheckPassed &#x26;&#x26; ltCheckPassed &#x26;&#x26; gtCheckPassed;
+  return regex.test(str) &amp;&amp; minCheckPassed &amp;&amp; maxCheckPassed &amp;&amp; ltCheckPassed &amp;&amp; gtCheckPassed;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1468,7 +1461,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
   (0, _assertString2.default)(str);
   try {
     var obj = JSON.parse(str);
-    return !!obj &#x26;&#x26; (typeof obj === &#x27;undefined&#x27; ? &#x27;undefined&#x27; : _typeof(obj)) === &#x27;object&#x27;;
+    return !!obj &amp;&amp; (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object';
   } catch (e) {/* ignore */}
   return false;
 }</pre></li>
@@ -1488,7 +1481,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
   (0, _assertString2.default)(str);
   var min = void 0;
   var max = void 0;
-  if ((typeof options === &#x27;undefined&#x27; ? &#x27;undefined&#x27; : _typeof(options)) === &#x27;object&#x27;) {
+  if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
     min = options.min || 0;
     max = options.max;
   } else {
@@ -1498,7 +1491,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
   }
   var surrogatePairs = str.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [];
   var len = str.length - surrogatePairs.length;
-  return len &#x3e;= min &#x26;&#x26; (typeof max === &#x27;undefined&#x27; || len &#x3c;= max);
+  return len &gt;= min &amp;&amp; (typeof max === 'undefined' || len &lt;= max);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1581,7 +1574,7 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isMongoId(str) {
   (0, _assertString2.default)(str);
-  return (0, _isHexadecimal2.default)(str) &#x26;&#x26; str.length === 24;
+  return (0, _isHexadecimal2.default)(str) &amp;&amp; str.length === 24;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1645,10 +1638,10 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isURL(url, options) {
   (0, _assertString2.default)(url);
-  if (!url || url.length &#x3e;= 2083 || /[\s&#x3c;&#x3e;]/.test(url)) {
+  if (!url || url.length &gt;= 2083 || /[\s&lt;&gt;]/.test(url)) {
     return false;
   }
-  if (url.indexOf(&#x27;mailto:&#x27;) === 0) {
+  if (url.indexOf('mailto:') === 0) {
     return false;
   }
   options = (0, _merge2.default)(options, default_url_options);
@@ -1661,73 +1654,73 @@ options.max) &#x26;&#x26; (!options.hasOwnProperty(&#x27;lt&#x27;) || str &#x3c;
       split = void 0,
       ipv6 = void 0;
 
-  split = url.split(&#x27;#&#x27;);
+  split = url.split('#');
   url = split.shift();
 
-  split = url.split(&#x27;?&#x27;);
+  split = url.split('?');
   url = split.shift();
 
-  split = url.split(&#x27;://&#x27;);
-  if (split.length &#x3e; 1) {
+  split = url.split('://');
+  if (split.length &gt; 1) {
     protocol = split.shift();
-    if (options.require_valid_protocol &#x26;&#x26; options.protocols.indexOf(protocol) === -1) {
+    if (options.require_valid_protocol &amp;&amp; options.protocols.indexOf(protocol) === -1) {
       return false;
     }
   } else if (options.require_protocol) {
     return false;
-  } else if (options.allow_protocol_relative_urls &#x26;&#x26; url.substr(0, 2) === &#x27;//&#x27;) {
+  } else if (options.allow_protocol_relative_urls &amp;&amp; url.substr(0, 2) === '//') {
     split[0] = url.substr(2);
   }
-  url = split.join(&#x27;://&#x27;);
+  url = split.join('://');
 
-  split = url.split(&#x27;/&#x27;);
+  split = url.split('/');
   url = split.shift();
 
-  if (url === &#x27;&#x27; &#x26;&#x26; !options.require_host) {
+  if (url === '' &amp;&amp; !options.require_host) {
     return true;
   }
 
-  split = url.split(&#x27;@&#x27;);
-  if (split.length &#x3e; 1) {
+  split = url.split('@');
+  if (split.length &gt; 1) {
     auth = split.shift();
-    if (auth.indexOf(&#x27;:&#x27;) &#x3e;= 0 &#x26;&#x26; auth.split(&#x27;:&#x27;).length &#x3e; 2) {
+    if (auth.indexOf(':') &gt;= 0 &amp;&amp; auth.split(':').length &gt; 2) {
       return false;
     }
   }
-  hostname = split.join(&#x27;@&#x27;);
+  hostname = split.join('@');
 
   port_str = ipv6 = null;
   var ipv6_match = hostname.match(wrapped_ipv6);
   if (ipv6_match) {
-    host = &#x27;&#x27;;
+    host = '';
     ipv6 = ipv6_match[1];
     port_str = ipv6_match[2] || null;
   } else {
-    split = hostname.split(&#x27;:&#x27;);
+    split = hostname.split(':');
     host = split.shift();
     if (split.length) {
-      port_str = split.join(&#x27;:&#x27;);
+      port_str = split.join(':');
     }
   }
 
   if (port_str !== null) {
     port = parseInt(port_str, 10);
-    if (!/^[0-9]+$/.test(port_str) || port &#x3c;= 0 || port &#x3e; 65535) {
+    if (!/^[0-9]+$/.test(port_str) || port &lt;= 0 || port &gt; 65535) {
       return false;
     }
   }
 
-  if (!(0, _isIP2.default)(host) &#x26;&#x26; !(0, _isFQDN2.default)(host, options) &#x26;&#x26; (!ipv6 || !(0, _isIP2.default)(ipv6, 6)) &#x26;&#x26; host !== &#x27;
-localhost&#x27;) {
+  if (!(0, _isIP2.default)(host) &amp;&amp; !(0, _isFQDN2.default)(host, options) &amp;&amp; (!ipv6 || !(0, _isIP2.default)(ipv6, 6)) &amp;&amp; host !== '
+localhost') {
     return false;
   }
 
   host = host || ipv6;
 
-  if (options.host_whitelist &#x26;&#x26; !checkHost(host, options.host_whitelist)) {
+  if (options.host_whitelist &amp;&amp; !checkHost(host, options.host_whitelist)) {
     return false;
   }
-  if (options.host_blacklist &#x26;&#x26; checkHost(host, options.host_blacklist)) {
+  if (options.host_blacklist &amp;&amp; checkHost(host, options.host_blacklist)) {
     return false;
   }
 
@@ -1746,11 +1739,11 @@ localhost&#x27;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isUUID(str) {
-  var version = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : &#x27;all&#x27;;
+  var version = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : 'all';
 
   (0, _assertString2.default)(str);
   var pattern = uuid[version];
-  return pattern &#x26;&#x26; pattern.test(str);
+  return pattern &amp;&amp; pattern.test(str);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1782,7 +1775,7 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isVariableWidth(str) {
   (0, _assertString2.default)(str);
-  return _isFullWidth.fullWidth.test(str) &#x26;&#x26; _isHalfWidth.halfWidth.test(str);
+  return _isFullWidth.fullWidth.test(str) &amp;&amp; _isHalfWidth.halfWidth.test(str);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1798,7 +1791,7 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isWhitelisted(str, chars) {
   (0, _assertString2.default)(str);
-  for (var i = str.length - 1; i &#x3e;= 0; i--) {
+  for (var i = str.length - 1; i &gt;= 0; i--) {
     if (chars.indexOf(str[i]) === -1) {
       return false;
     }
@@ -1819,8 +1812,8 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ltrim(str, chars) {
   (0, _assertString2.default)(str);
-  var pattern = chars ? new RegExp(&#x27;^[&#x27; + chars + &#x27;]+&#x27;, &#x27;g&#x27;) : /^\s+/g;
-  return str.replace(pattern, &#x27;&#x27;);
+  var pattern = chars ? new RegExp('^[' + chars + ']+', 'g') : /^\s+/g;
+  return str.replace(pattern, '');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1836,7 +1829,7 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function matches(str, pattern, modifiers) {
   (0, _assertString2.default)(str);
-  if (Object.prototype.toString.call(pattern) !== &#x27;[object RegExp]&#x27;) {
+  if (Object.prototype.toString.call(pattern) !== '[object RegExp]') {
     pattern = new RegExp(pattern, modifiers);
   }
   return pattern.test(str);
@@ -1860,21 +1853,21 @@ localhost&#x27;) {
     return false;
   }
 
-  var raw_parts = email.split(&#x27;@&#x27;);
+  var raw_parts = email.split('@');
   var domain = raw_parts.pop();
-  var user = raw_parts.join(&#x27;@&#x27;);
+  var user = raw_parts.join('@');
   var parts = [user, domain];
 
-  // The domain is always lowercased, as it&#x27;s case-insensitive per RFC 1035
+  // The domain is always lowercased, as it's case-insensitive per RFC 1035
   parts[1] = parts[1].toLowerCase();
 
-  if (parts[1] === &#x27;gmail.com&#x27; || parts[1] === &#x27;googlemail.com&#x27;) {
+  if (parts[1] === 'gmail.com' || parts[1] === 'googlemail.com') {
     // Address is GMail
     if (options.gmail_remove_subaddress) {
-      parts[0] = parts[0].split(&#x27;+&#x27;)[0];
+      parts[0] = parts[0].split('+')[0];
     }
     if (options.gmail_remove_dots) {
-      parts[0] = parts[0].replace(/\./g, &#x27;&#x27;);
+      parts[0] = parts[0].replace(/\./g, '');
     }
     if (!parts[0].length) {
       return false;
@@ -1882,11 +1875,11 @@ localhost&#x27;) {
     if (options.all_lowercase || options.gmail_lowercase) {
       parts[0] = parts[0].toLowerCase();
     }
-    parts[1] = options.gmail_convert_googlemaildotcom ? &#x27;gmail.com&#x27; : parts[1];
+    parts[1] = options.gmail_convert_googlemaildotcom ? 'gmail.com' : parts[1];
   } else if (~icloud_domains.indexOf(parts[1])) {
     // Address is iCloud
     if (options.icloud_remove_subaddress) {
-      parts[0] = parts[0].split(&#x27;+&#x27;)[0];
+      parts[0] = parts[0].split('+')[0];
     }
     if (!parts[0].length) {
       return false;
@@ -1897,7 +1890,7 @@ localhost&#x27;) {
   } else if (~outlookdotcom_domains.indexOf(parts[1])) {
     // Address is Outlook.com
     if (options.outlookdotcom_remove_subaddress) {
-      parts[0] = parts[0].split(&#x27;+&#x27;)[0];
+      parts[0] = parts[0].split('+')[0];
     }
     if (!parts[0].length) {
       return false;
@@ -1908,8 +1901,8 @@ localhost&#x27;) {
   } else if (~yahoo_domains.indexOf(parts[1])) {
     // Address is Yahoo
     if (options.yahoo_remove_subaddress) {
-      var components = parts[0].split(&#x27;-&#x27;);
-      parts[0] = components.length &#x3e; 1 ? components.slice(0, -1).join(&#x27;-&#x27;) : components[0];
+      var components = parts[0].split('-');
+      parts[0] = components.length &gt; 1 ? components.slice(0, -1).join('-') : components[0];
     }
     if (!parts[0].length) {
       return false;
@@ -1921,7 +1914,7 @@ localhost&#x27;) {
     // Any other address
     parts[0] = parts[0].toLowerCase();
   }
-  return parts.join(&#x27;@&#x27;);
+  return parts.join('@');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1937,14 +1930,14 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function rtrim(str, chars) {
   (0, _assertString2.default)(str);
-  var pattern = chars ? new RegExp(&#x27;[&#x27; + chars + &#x27;]&#x27;) : /\s/;
+  var pattern = chars ? new RegExp('[' + chars + ']') : /\s/;
 
   var idx = str.length - 1;
-  while (idx &#x3e;= 0 &#x26;&#x26; pattern.test(str[idx])) {
+  while (idx &gt;= 0 &amp;&amp; pattern.test(str[idx])) {
     idx--;
   }
 
-  return idx &#x3c; str.length ? str.substr(0, idx + 1) : str;
+  return idx &lt; str.length ? str.substr(0, idx + 1) : str;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1960,7 +1953,7 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function stripLow(str, keep_new_lines) {
   (0, _assertString2.default)(str);
-  var chars = keep_new_lines ? &#x27;\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F&#x27; : &#x27;\\x00-\\x1F\\x7F&#x27;;
+  var chars = keep_new_lines ? '\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F' : '\\x00-\\x1F\\x7F';
   return (0, _blacklist2.default)(str, chars);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1978,9 +1971,9 @@ localhost&#x27;) {
     <li>description and source-code<pre class="apidocCodePre">function toBoolean(str, strict) {
   (0, _assertString2.default)(str);
   if (strict) {
-    return str === &#x27;1&#x27; || str === &#x27;true&#x27;;
+    return str === '1' || str === 'true';
   }
-  return str !== &#x27;0&#x27; &#x26;&#x26; str !== &#x27;false&#x27; &#x26;&#x26; str !== &#x27;&#x27;;
+  return str !== '0' &amp;&amp; str !== 'false' &amp;&amp; str !== '';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2060,8 +2053,8 @@ localhost&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function unescape(str) {
       (0, _assertString2.default)(str);
-      return str.replace(/&#x26;amp;/g, &#x27;&#x26;&#x27;).replace(/&#x26;quot;/g, &#x27;&#x22;&#x27;).replace(/&#x26;#x27;/g, &#x22;&#x27;&#x22;).replace(/&#x26;lt;/g, &#x27;&#x3c;&#x27;).replace(/&#x26;gt;/g, &#x27;&#x3e;&#x27;).
-replace(/&#x26;#x2F;/g, &#x27;/&#x27;).replace(/&#x26;#96;/g, &#x27;`&#x27;);
+      return str.replace(/&amp;amp;/g, '&amp;').replace(/&amp;quot;/g, '"').replace(/&amp;#x27;/g, "'").replace(/&amp;lt;/g, '&lt;').replace(/&amp;gt;/g, '&gt;').
+replace(/&amp;#x2F;/g, '/').replace(/&amp;#96;/g, '`');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2077,7 +2070,7 @@ replace(/&#x26;#x2F;/g, &#x27;/&#x27;).replace(/&#x26;#96;/g, &#x27;`&#x27;);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function whitelist(str, chars) {
   (0, _assertString2.default)(str);
-  return str.replace(new RegExp(&#x27;[^&#x27; + chars + &#x27;]+&#x27;, &#x27;g&#x27;), &#x27;&#x27;);
+  return str.replace(new RegExp('[^' + chars + ']+', 'g'), '');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2093,3 +2086,4 @@ replace(/&#x26;#x2F;/g, &#x27;/&#x27;).replace(/&#x26;#96;/g, &#x27;`&#x27;);
     ]
 </div>
 </div>
+</body></html>
