@@ -1,6 +1,6 @@
 # npmdoc-validator
 
-#### api documentation for  [validator (v7.0.0)](http://github.com/chriso/validator.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-validator.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-validator) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-validator.svg)](https://travis-ci.org/npmdoc/node-npmdoc-validator)
+#### basic api documentation for  [validator (v7.0.0)](http://github.com/chriso/validator.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-validator.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-validator) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-validator.svg)](https://travis-ci.org/npmdoc/node-npmdoc-validator)
 
 #### String validation and sanitization
 
@@ -98,7 +98,8 @@
         "pretest": "npm run lint && npm run build",
         "test": "mocha --reporter spec"
     },
-    "version": "7.0.0"
+    "version": "7.0.0",
+    "bin": {}
 }
 ```
 
